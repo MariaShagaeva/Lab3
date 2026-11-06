@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Доска публикаций</title>
+    <!-- Поделючаем внешний файл с css кодом -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Подключаем внешний файл с js кодом и выполняем его только после загрузки все html-страницы (defer) -->
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <!-- Заголовок страницы -->
+    <header class="page-header">
+        <h1>Доска публикаций</h1>
+        <p class="page-header__subtitle">Лабораторная работа № 3: Асинхронный JavaScript и REST API</p>
+    </header>
+
+    <main class="container">
+        <!-- Блок управления загрузкой -->
+        <section class="card">
+            <div class="toolbar">
+                <button type="button" id="loadBtn" class="btn">Загрузить публикации</button>
+                <div id="statusMessage" class="status-message" aria-live="polite"></div>
+            </div>
+        </section>
+
+        <!-- Форма создания публикации -->
+        <section class="card">
+            <h2>Создать публикацию</h2>
+            <form id="postForm" novalidate>
+                <div class="field">
+                    <label for="title">Заголовок</label>
+                    <input type="text" id="title" name="title" placeholder="Введите заголовок" autocomplete="off">
+                </div>
+                <div class="field">
+                    <label for="body">Текст</label>
+                    <textarea id="body" name="body" rows="3" placeholder="Введите текст публикации"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" id="submitBtn" class="btn">Создать публикацию</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Область для списка публикаций -->
+        <section class="card">
+            <h2>Список публикаций</h2>
+            <div id="postsList" class="posts-list"></div>
+            <p id="emptyState" class="empty-state">Публикации не загружены. Нажмите «Загрузить публикации».</p>
+        </section>
+    </main>
+</body>
+</html>

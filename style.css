@@ -1,0 +1,175 @@
+/* Блок глобальных переменных*/
+:root {
+  --bg: #d8f3e1;
+  --surface: #ffffff;
+  --border: #d7e3da;
+  --text: #1a2620;
+  --muted: #66796e;
+  --primary: #2e8b57;
+  --primary-dark: #246b45;
+  --danger: #d64545;
+  --danger-soft: #fdecec;
+  --success: #2e8b57;
+  --success-soft: #e8f5e9;
+  --radius: 12px;
+  --shadow: 0 6px 18px rgba(26, 38, 32, 0.08);
+}
+
+* { box-sizing: border-box; }
+
+/* Базовые настройки все страницы*/ 
+body {
+  margin: 0;
+  padding: 24px 16px 64px;
+  font-family: "Segoe UI", Roboto, system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+/* Шапка страницы*/
+.page-header {
+  max-width: 860px;
+  margin: 0 auto 24px;
+}
+.page-header h1 { margin: 0 0 4px; font-size: 1.9rem; }
+.page-header__subtitle { margin: 0; color: var(--muted); font-size: 0.95rem; }
+
+/* Главный скелет страницы (сетка) */
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+/* Карточки страницы*/
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+}
+.card h2 { margin: 0 0 16px; font-size: 1.15rem; }
+
+/* Поля формы */
+.field { margin-bottom: 14px; }
+.field label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px 12px;
+  font: inherit;
+  color: inherit;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  resize: vertical;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(46, 139, 87, 0.15);
+}
+
+/* Кнопки */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  font: inherit;
+  font-weight: 600;
+  color: #fff;
+  background: var(--primary);
+  border: 1px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.05s, opacity 0.15s;
+}
+.btn:hover { background: var(--primary-dark); }
+.btn:active { transform: translateY(1px); }
+.btn:disabled {
+  background: var(--muted);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+/* Статус сообщения */
+.status-message {
+  margin-top: 12px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  display: none;
+}
+.status-message--loading {
+  display: block;
+  background: #e3f2fd;
+  color: #1565c0;
+}
+.status-message--error {
+  display: block;
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+.status-message--success {
+  display: block;
+  background: var(--success-soft);
+  color: var(--success);
+}
+
+/* Список публикаций */
+.posts-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.post-item {
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #f9fbfa;
+}
+
+.post-item__title {
+  margin: 0 0 6px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  text-transform: capitalize;
+}
+
+.post-item__body {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--text);
+}
+
+.empty-state {
+  margin: 16px 0 0;
+  padding: 20px;
+  text-align: center;
+  color: var(--muted);
+  border: 1px dashed var(--border);
+  border-radius: 10px;
+}
+
+.hidden { display: none !important; }
